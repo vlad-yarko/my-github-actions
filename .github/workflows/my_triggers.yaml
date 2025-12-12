@@ -11,7 +11,7 @@ on:
     
     paths:
       - "src/*"
-      - "src/*.txt"
+      - "!src/*.txt"
 
   ### https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
   pull_request:
@@ -22,7 +22,7 @@ on:
       - reopened
     paths:
       - "src/*"
-      - "src/*.txt"
+      - "!src/*.txt"
 
   ### https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
   # schedule:
