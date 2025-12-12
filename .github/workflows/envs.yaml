@@ -1,0 +1,24 @@
+name: Environment Variables
+
+
+on:
+  workflow_dispatch:
+
+
+env:
+  WORKFLOW_SUPER_VAR: workflow_super
+
+  
+jobs:
+  job-1:
+    runs-on: ubuntu-24.04
+    env:
+      JOB_SUPER_VAR: job_super
+    steps:
+      - name: step 1
+        env:
+          STEP_VAR: STEP_SUPER_VAR
+        run: |
+          echo "$WORKFLOW_VAR"   # visible
+          echo "$JOB_VAR"        # visible
+          echo "$STEP_VAR"       # visible only here
