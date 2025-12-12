@@ -19,6 +19,6 @@ jobs:
         env:
           STEP_VAR: STEP_SUPER_VAR
         run: |
-          echo "$WORKFLOW_VAR"   # visible
-          echo "$JOB_VAR"        # visible
-          echo "$STEP_VAR"       # visible only here
+          echo "WORKFLOW_VAR: $WORKFLOW_VAR"   # visible
+          echo "JOB_VAR:      $JOB_VAR"        # visible
+          echo "STEP_VAR:     $STEP_VAR"       # visible only here
