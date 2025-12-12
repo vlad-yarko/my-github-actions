@@ -1,9 +1,7 @@
 name: Step Types
 
-
 on:
   workflow_dispatch:
-
 
 jobs:
   say-hello-inline-bash:
