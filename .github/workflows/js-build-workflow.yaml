@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/js-build-action
-      - uses: vlad-yarko/my-js-build-action@v1.0.0
+      - uses: vlad-yarko/js-build-action@v1.0.0
         with:
           name: "Puppy"
