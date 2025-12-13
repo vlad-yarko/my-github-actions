@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
       - id: composite-action-instance
-        uses: ./actions/puppy-action
+        uses: ./.github/actions/puppy-action
         with:
           puppy-name: "Biba"
           puppy-dick: "Small"
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-24.04
     name: Second usage of the composite puppy action
     steps:
-      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
+      - uses: ./.github/actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
       - id: composite-action-instance
         uses: ./actions/puppy-action
         with:
