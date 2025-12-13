@@ -11,7 +11,7 @@ outputs:
 runs:
   # Option A – let GitHub build from Dockerfile each run
   using: docker 
-  image: ./container-action/Dockerfile
+  image: Dockerfile
   # Option B – use a pre-built image to avoid rebuilds:
   # image: docker://ghcr.io/your-org/hello-python-action:v1
   # image: docker://ghcr.io/vlad-yarko/container-action:prod
