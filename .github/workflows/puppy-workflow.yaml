@@ -1,0 +1,36 @@
+name: Puppy workflow
+
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  puppy-1:
+    runs-on: ubuntu-24.04
+    name: One usage of the composite puppy action
+    steps:
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
+      - id: composite-action-instance
+        uses: ./actions/puppy-action
+        with:
+          puppy-name: "Biba"
+          puppy-dick: "Small"
+      - env:
+          RANDOM_NUMBER: ${{ steps.composite-action-instance.outputs.puppy-random-number }}
+        run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+  puppy-2:
+    runs-on: ubuntu-24.04
+    name: Second usage of the composite puppy action
+    steps:
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
+      - id: composite-action-instance
+        uses: ./actions/puppy-action
+        with:
+          puppy-name: "Boba"
+          puppy-dick: "Medium"
+      - env:
+          RANDOM_NUMBER: ${{ steps.composite-action-instance.outputs.puppy-random-number }}
+        run: echo random-number "$RANDOM_NUMBER"
+        shell: bash

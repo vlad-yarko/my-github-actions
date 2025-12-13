@@ -1,0 +1,35 @@
+name: 'Puppy action'
+description: 'Puppy workflow'
+
+
+inputs:
+  puppy-name: # id of input
+    description: 'Puppy name'
+    required: true
+    default: 'My Puppy'
+  puppy-dick:
+    description: "Puppy dick"
+    required: true
+    default: "Huge"
+
+
+outputs:
+  puppy-random-number:
+    description: 'Random number'
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Say Puppy Biography
+      run: echo "Puppy $PUPPY_NAME has $PUPPY_DICK dick"
+      shell: bash
+      env:
+        PUPPY_NAME: ${{ inputs.puppy-name }}
+        PUPPY_DICK: ${{ inputs.puppy-dick }}
+
+    - name: Random Number Generator
+      id: random-number-generator
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
