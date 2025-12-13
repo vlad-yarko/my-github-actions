@@ -18,7 +18,7 @@ jobs:
     name: Invoke reuseable workflow with repo + commit hash
     uses: vlad-yarko/my-github-actions/.github/workflows/reusable_workflow.yaml@59929ae294a7d9e747bd7463bcbd35fbbb8df648
     with:
-      foo: bar
+      puppy: bar
       environment: production
     secrets:
       EXAMPLE_REPOSITORY_SECRET: ${{ secrets.PUPPY_REPOSITORY_SECRET }}
