@@ -19,8 +19,8 @@ jobs:
         puppy: [1, 2, 3, 4]
         dick: [small, huge]
         exclude:
-          - number: 2
-            letter: b
+          - puppy: 2
+            dick: huge
     timeout-minutes: 5
 
     steps:
@@ -31,8 +31,8 @@ jobs:
           echo "dick: ${{ matrix.dick }}"
 
       # Step 2 – run for every combo EXCEPT number=2 ∧ letter=c
-      - name: Run everywhere except 2b
-        if: ${{ ! (matrix.puppy == 2 && matrix.dick == 'b') }}
+      - name: Run everywhere except 2huge
+        if: ${{ ! (matrix.puppy == 2 && matrix.dick == 'huge') }}
         run: echo "✔ This step runs for ${{ matrix.puppy }}${{ matrix.dick }}"
 
   sleep-job:
