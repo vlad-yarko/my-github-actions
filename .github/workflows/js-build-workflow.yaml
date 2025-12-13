@@ -1,0 +1,14 @@
+name: Test JS Build Action
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  greeting-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/js-build-action
+        with:
+          name: "Puppy"
