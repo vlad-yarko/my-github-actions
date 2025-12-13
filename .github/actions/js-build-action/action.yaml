@@ -1,0 +1,12 @@
+name: "My JS Build Action"
+description: "A JavaScript action with build step"
+inputs:
+  name:
+    description: "Your name"
+    required: true
+outputs:
+  greeting:
+    description: "Greeting message"
+runs:
+  using: "node20"
+  main: "dist/index.js"
