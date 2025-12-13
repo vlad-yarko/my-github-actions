@@ -16,7 +16,7 @@ jobs:
 
   call-reuseable-workflow-sha:
     name: Invoke reuseable workflow with repo + commit hash
-    uses: vlad-yarko/my-github-actions/.github/workflows/reusable_workflow.yaml@59929ae294a7d9e747bd7463bcbd35fbbb8df648
+    uses: vlad-yarko/my-github-actions/.github/workflows/reusable_workflow.yaml@cad404fbcd9701c950e84be84c895846319f5e14
     with:
       puppy: bar
       environment: puppy-production
