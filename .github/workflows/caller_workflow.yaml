@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/reusable_workflow.yaml
     with:
       puppy: SUPER_PUPY_INPUT
-      environment: staging
+      environment: puppy-staging
     secrets: inherit
 
   call-reuseable-workflow-sha:
@@ -19,6 +19,6 @@ jobs:
     uses: vlad-yarko/my-github-actions/.github/workflows/reusable_workflow.yaml@59929ae294a7d9e747bd7463bcbd35fbbb8df648
     with:
       puppy: bar
-      environment: production
+      environment: puppy-production
     secrets:
       EXAMPLE_REPOSITORY_SECRET: ${{ secrets.PUPPY_REPOSITORY_SECRET }}

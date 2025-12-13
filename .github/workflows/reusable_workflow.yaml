@@ -15,7 +15,6 @@ on:
       # NOTE: You can only pass repo/org secrets here, not environment secrets
       EXAMPLE_REPOSITORY_SECRET:
         required: true
-
         
 jobs:
   reusable-workflow-job:
@@ -31,7 +30,7 @@ jobs:
           EXAMPLE_REPOSITORY_SECRET: ${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
           # from the **environment** selected above
           EXAMPLE_ENVIRONMENT_SECRET: ${{ secrets.PUPPY_ENVIRONMENT_SECRET }}
-          EXAMPLE_ENVIRONMENT_VARIABLE: ${{ vars.PUPPY }}
+          EXAMPLE_ENVIRONMENT_VARIABLE: ${{ vars.PUPPY_ENVIRONMENT_VARIABLE }}
         run: |
           echo "PUPPY                           = $PUPPY"
           echo "EXAMPLE_REPOSITORY_SECRET     = $EXAMPLE_REPOSITORY_SECRET"
