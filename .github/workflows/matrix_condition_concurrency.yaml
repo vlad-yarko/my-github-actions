@@ -1,0 +1,43 @@
+name: Matrix and Conditionals and Concurrency
+
+
+on:
+  workflow_dispatch:
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+  matrix-job:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: true
+      matrix:
+        puppy: [1, 2, 3, 4]
+        dick: [small, huge]
+        exclude:
+          - number: 2
+            letter: b
+    timeout-minutes: 5
+
+    steps:
+      # Step 1 – always runs
+      - name: Echo number and letter
+        run: |
+          echo "puppy: ${{ matrix.puppy }}"
+          echo "dick: ${{ matrix.dick }}"
+
+      # Step 2 – run for every combo EXCEPT number=2 ∧ letter=c
+      - name: Run everywhere except 2b
+        if: ${{ ! (matrix.puppy == 2 && matrix.dick == 'b') }}
+        run: echo "✔ This step runs for ${{ matrix.puppy }}${{ matrix.dick }}"
+
+  sleep-job:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Sleep (to give time to be cancelled)
+        run: sleep 100
+        timeout-minutes: 2
