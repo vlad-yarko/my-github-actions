@@ -9,7 +9,7 @@ outputs:
   greeting:
     description: The greeting that was printed
 runs:
-  using: docker
+  using: docker 
   # Option A – let GitHub build from Dockerfile each run
   # image: Dockerfile
   # Option B – use a pre-built image to avoid rebuilds:
