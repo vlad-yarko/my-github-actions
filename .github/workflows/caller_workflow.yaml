@@ -1,0 +1,24 @@
+name: Reuseable Workflow Caller
+
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  call-reuseable-workflow-path:
+    name: Invoke reuseable workflow with relative path
+    uses: ./.github/workflows/reusable_workflow.yaml
+    with:
+      puppy: SUPER_PUPY_INPUT
+      environment: staging
+    secrets: inherit
+
+  call-reuseable-workflow-sha:
+    name: Invoke reuseable workflow with repo + commit hash
+    uses: vlad-yarko/my-github-actions/workflows/reusable_workflow.yaml@
+    with:
+      foo: bar
+      environment: production
+    secrets:
+      EXAMPLE_REPOSITORY_SECRET: ${{ secrets.PUPPY_REPOSITORY_SECRET }}
