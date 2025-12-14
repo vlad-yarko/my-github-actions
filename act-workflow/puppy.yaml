@@ -1,0 +1,43 @@
+name: Secrets and Environments
+
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  staging-environment:
+    runs-on: ubuntu-24.04
+    environment: puppy-staging
+    env:
+      # Inject repository-level secret & variable into the shell
+      PUPPY_REPOSITORY_SECRET: ${{ secrets.PUPPY_REPOSITORY_SECRET }}
+      PUPPY_REPOSITORY_VARIABLE: ${{ vars.PUPPY_REPOSITORY_VARIABLE }}
+      # Inject environment-level items into the shell
+      PUPPY_ENVIRONMENT_SECRET: ${{ secrets.PUPPY_ENVIRONMENT_SECRET }}
+      PUPPY_ENVIRONMENT_VARIABLE: ${{ vars.PUPPY_ENVIRONMENT_VARIABLE }}
+    steps:
+      - name: Inspect values inside job
+        run: |
+          echo "Repo secret (masked):    $PUPPY_REPOSITORY_SECRET"
+          echo "Repo variable:           $PUPPY_REPOSITORY_VARIABLE"
+          echo "Env secret (masked):     $PUPPY_ENVIRONMENT_SECRET"
+          echo "Env variable:            $PUPPY_ENVIRONMENT_VARIABLE"
+
+  production-environment:
+    runs-on: ubuntu-24.04
+    environment: puppy-production
+    env:
+      # Inject repository-level secret & variable into the shell
+      PUPPY_REPOSITORY_SECRET: ${{ secrets.PUPPY_REPOSITORY_SECRET }}
+      PUPPY_REPOSITORY_VARIABLE: ${{ vars.PUPPY_REPOSITORY_VARIABLE }}
+      # Inject environment-level items into the shell
+      PUPPY_ENVIRONMENT_SECRET: ${{ secrets.PUPPY_ENVIRONMENT_SECRET }}
+      PUPPY_ENVIRONMENT_VARIABLE: ${{ vars.PUPPY_ENVIRONMENT_VARIABLE }}
+    steps:
+      - name: Inspect values inside job
+        run: |
+          echo "Repo secret (masked):    $PUPPY_REPOSITORY_SECRET"
+          echo "Repo variable:           $PUPPY_REPOSITORY_VARIABLE"
+          echo "Env secret (masked):     $PUPPY_ENVIRONMENT_SECRET"
+          echo "Env variable:            $PUPPY_ENVIRONMENT_VARIABLE"
